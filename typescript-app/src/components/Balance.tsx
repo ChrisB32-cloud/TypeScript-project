@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 //Money formatter function
-function moneyFormatter(num) {
-  let p = num.toFixed(2).split(".");
+function moneyFormatter(num: number): string {
+  const p = num.toFixed(2).split(".");
   return (
     "$ " +
     (p[0].split("")[0] === "-" ? "-" : "") +
     p[0]
       .split("")
       .reverse()
-      .reduce(function (acc, num, i, orig) {
+      .reduce(function (acc, num, i) {
         return num === "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
       }, "") +
     "." +
@@ -17,10 +18,10 @@ function moneyFormatter(num) {
   );
 }
 
-const Balance = (transactions) => {
+const Balance = () => {
+  const { transactions } = useContext(GlobalContext);
   const amounts = transactions.map((transaction) => transaction.amount);
-
-  const total = amounts.reduce((acc, item) => (acc += item), 0);
+  const total = amounts.reduce((acc: number, item: number) => (acc += item), 0);
 
   return (
     <>
