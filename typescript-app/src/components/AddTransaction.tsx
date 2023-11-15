@@ -9,7 +9,7 @@ interface Transaction {
   amount: number;
 }
 
-const AddTransactions = () => {
+const AddTransaction = () => {
   const { addTransaction } = useContext(GlobalContext);
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
@@ -55,4 +55,4 @@ const AddTransactions = () => {
   );
 };
 
-export default AddTransactions;
+export default AddTransaction;
