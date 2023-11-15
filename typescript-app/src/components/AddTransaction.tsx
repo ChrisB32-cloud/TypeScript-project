@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -9,6 +10,7 @@ interface Transaction {
 }
 
 const AddTransactions = () => {
+  const { addTransaction } = useContext(GlobalContext);
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
 
@@ -20,8 +22,7 @@ const AddTransactions = () => {
       text,
       amount: +amount,
     };
-
-    console.log(newTransaction);
+    addTransaction(newTransaction);
   };
   return (
     <>
