@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
+type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 interface Transaction {
   id: number;
   text: string;
@@ -8,10 +9,10 @@ interface Transaction {
 }
 
 const AddTransactions = () => {
-  const [text, setText] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [text, setText] = useState<string>("");
+  const [amount, setAmount] = useState<number>(0);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = (e: FormEvent): void => {
     e.preventDefault();
 
     const newTransaction: Transaction = {
@@ -31,7 +32,7 @@ const AddTransactions = () => {
           <input
             type="text"
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e: ChangeEvent) => setText(e.target.value)}
             placeholder="Enter text..."
           />
         </div>
@@ -43,7 +44,7 @@ const AddTransactions = () => {
           <input
             type="number"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e: ChangeEvent) => setAmount(+e.target.value)}
             placeholder="Enter amount..."
           />
         </div>
