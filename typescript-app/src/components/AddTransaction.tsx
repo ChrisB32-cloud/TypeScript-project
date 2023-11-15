@@ -9,7 +9,7 @@ interface Transaction {
   amount: number;
 }
 
-const AddTransaction = () => {
+const AddTransaction: React.FC = () => {
   const { addTransaction } = useContext(GlobalContext);
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);

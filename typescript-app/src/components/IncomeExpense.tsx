@@ -17,7 +17,7 @@ function moneyFormatter(num) {
   );
 }
 
-const IncomeExpenses = () => {
+const IncomeExpenses: React.FC = () => {
   const { transactions } = useContext(GlobalContext);
 
   const amounts = transactions.map((transaction) => transaction.amount);
