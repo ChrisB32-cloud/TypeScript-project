@@ -7,7 +7,7 @@ interface TransactionInter {
   amount: number;
 }
 
-const Transaction = ({ transaction }: TransactionInter) => {
+const Transaction = ({ transaction }) => {
   const { deleteTransaction } = useContext(GlobalContext);
 
   //Money formatter function

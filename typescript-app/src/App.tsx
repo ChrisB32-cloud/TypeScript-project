@@ -3,9 +3,9 @@
 import Header from "./components/Header";
 // import { Balance } from "./components/Balance";
 import Balance from "./components/Balance";
-// import { IncomeExpenses } from "./components/IncomeExpenses";
 import IncomeExpenses from "./components/IncomeExpense";
 // import { TransactionList } from "./components/TransactionList";
+import TransactionList from "./components/TransactionList";
 // import { AddTransaction } from "./components/AddTransaction";
 import AddTransaction from "./components/AddTransaction";
 
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       <div className="container">
         <Balance />
         <IncomeExpenses />
-        {/* <TransactionList /> */}
+        <TransactionList />
         <AddTransaction />
       </div>
     </GlobalProvider>

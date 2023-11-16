@@ -14,8 +14,6 @@ const AddTransaction: React.FC = () => {
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
 
-  console.log(addTransaction);
-
   const onSubmit = (e: FormEvent): void => {
     e.preventDefault();
 
@@ -25,6 +23,7 @@ const AddTransaction: React.FC = () => {
       amount: +amount,
     };
     addTransaction(newTransaction);
+    console.log(newTransaction);
   };
   return (
     <>
