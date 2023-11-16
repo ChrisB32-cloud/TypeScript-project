@@ -26,14 +26,14 @@ export const GlobalProvider = ({ children }: ChildNode) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  function deleteTransaction(id: string) {
+  function deleteTransaction(id) {
     dispatch({
       type: "DELETE_TRANSACTION",
       payload: id,
     });
   }
 
-  function addTransaction(transaction: Transaction): void {
+  function addTransaction(transaction: Transaction) {
     dispatch({
       type: "ADD_TRANSACTION",
       payload: transaction,
