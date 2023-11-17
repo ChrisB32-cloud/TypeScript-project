@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const IncomeExpenses: React.FC = () => {
-  const { transactions } = useContext(GlobalContext);
+  const { state } = useContext(GlobalContext);
 
-  const amounts = transactions.map((transaction) => transaction.amount);
+  const amounts = state.transactions.map((transaction) => transaction.amount);
 
   //Money formatter function
   function moneyFormatter(num: number) {

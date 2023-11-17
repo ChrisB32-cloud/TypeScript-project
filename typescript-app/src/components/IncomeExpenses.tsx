@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const IncomeExpenses = () => {
-  const { transactions } = useContext(GlobalContext);
+  const { state } = useContext(GlobalContext);
   //Money formatter function
   function moneyFormatter(num: number) {
     const p = num.toFixed(2).split(".");
@@ -19,7 +19,7 @@ export const IncomeExpenses = () => {
     );
   }
 
-  const amounts = transactions.map((transaction) => transaction.amount);
+  const amounts = state.transactions.map((transaction) => transaction.amount);
 
   const income = amounts
     .filter((item) => item > 0)

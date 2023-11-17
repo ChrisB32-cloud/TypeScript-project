@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
-interface TransactionInter {
-  id: number;
-  text: string;
-  amount: number;
+interface TransactionProps {
+  transaction: {
+    id: number;
+    text: string;
+    amount: number;
+  };
 }
 
-const Transaction = ({ transaction }) => {
+const Transaction: React.FC<TransactionProps> = ({ transaction }) => {
   const { deleteTransaction } = useContext(GlobalContext);
+
+  console.log(transaction);
 
   //Money formatter function
   function moneyFormatter(num: number): string {
